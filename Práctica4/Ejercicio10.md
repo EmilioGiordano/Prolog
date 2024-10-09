@@ -1,0 +1,1 @@
+10. Un millonario excéntrico tenía tres hijos Carlos, José' y Marta. Al morir dejó el siguiente legado: "A José le dejo 4/3 de lo que le dejo a Carlos; a Carlos le dejo 1/3 de mi fortuna y a Marta le dejo la mitad de lo que le dejo a José". Preparar un predicado que vincule la suma a repartir con lo que le toca a cada uno.

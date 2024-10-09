@@ -1,0 +1,1 @@
+8. Definir un predicado que vincule las notas de cuatro parciales con la nota promedio.
