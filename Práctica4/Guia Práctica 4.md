@@ -177,33 +177,33 @@ información:
 #####  B. ¿Quiénes son los progenitores de Roberto?
 ```prolog
 ?- es_progenitor_de(Progenitor, roberto).
-% Progenitor = carlos
-% Progenitor = susana
+Progenitor = carlos
+Progenitor = susana
 ```
 ##### C. ¿Guillermo tuvo alguna hija?
 ```prolog
 ?- es_progenitor_de(guillermo, X), es_mujer(X)
-% false
+false
 ```
 ##### Caso con hijos varones y mujeres: 
 ```prolog
 es_progenitor_de(carlos, X), es_mujer(X)
-% X = amalia
-% false
+X = amalia
+false
 ```
 
 D. ¿Ernesto tuvo algún hijo varón?
 
 ```prolog
 ?- es_progenitor_de(guillermo, X), es_mujer(X)
-% false
+false
 ```
 
 E. ¿Roberto y Amalia tienen el mismo padre?
 
 ```prolog
 ?- es_progenitor_de(Padre, roberto), es_progenitor_de(Padre, amalia)
-% Padre = carlos
+Padre = carlos
 ```
 
 F. ¿Ernesto tuvo alguna hija que a su vez tenga una hija?
@@ -227,7 +227,7 @@ celsius_a_fahrenheit(C, F) :-
 ##### Consulta
 ```prolog
 ?- celsius_a_fahrenheit(1, F).
-% F = 33.8
+F = 33.8
 ```
 
 ### Ejercicio 6
@@ -247,9 +247,9 @@ longitud(Cm, Pulgadas, Pies, Yardas) :-
 ##### Consulta
 ```prolog
 ?- longitud(100, Pulgadas, Pies, Yardas)
-% Pies = 21.166666666666668,
-% Pulgadas = 254.0,
-% Yardas = 7.055555555555556
+Pies = 21.166666666666668,
+Pulgadas = 254.0,
+Yardas = 7.055555555555556
 ```
 
 ### Ejercicio 7
@@ -281,7 +281,7 @@ promedio(Nota1,Nota2, Nota3, Nota4, Promedio) :-
 ##### Consulta
 ```prolog
 ?- promedio(2,2,10,3, Promedio)
-% Promedio = 4.25
+Promedio = 4.25
 ```
 
 ### Ejercicio 9
@@ -298,7 +298,7 @@ pagoFinal(SueldoGerente, SueldoAdministrativo, SueldoOrdenanza, PagoFinal):-
 ##### Consulta
 ```prolog
 ?- pagoFinal(650000, 450000, 800000, PagoFinal)
-% PagoFinal = 19200000
+PagoFinal = 19200000
 ```
 
 ### Ejercicio 10
@@ -313,9 +313,9 @@ herencia(HerenciaCarlos, HerenciaJose, HerenciaMarta, HerenciaTotal):-
 ##### Consulta
 ```prolog
 ?- herencia(HerenciaCarlos, HerenciaJose, HerenciaMarta, 1000000).
-% HerenciaCarlos = 333333.3333333333,
-% HerenciaJose = 444444.4444444444,
-% HerenciaMarta = 222222.2222222222
+HerenciaCarlos = 333333.3333333333,
+HerenciaJose = 444444.4444444444,
+HerenciaMarta = 222222.2222222222
 ```
 
 ### Ejercicio 11
@@ -359,13 +359,13 @@ __Hacer una consulta para encontrar todas las ofertas de menos de $50.__
 ##### Consulta
 ```prolog
 ?- ofertas_bajo_cincuenta(ArticuloBazar, ArticuloPerfumeria, ArticuloJugueteria).
-% ArticuloBazar = fuentes,
-% ArticuloJugueteria = autito,
-% ArticuloPerfumeria = jabones
+ArticuloBazar = fuentes,
+ArticuloJugueteria = autito,
+ArticuloPerfumeria = jabones
 
-% ArticuloBazar = fuentes,
-% ArticuloJugueteria = muneca,
-% ArticuloPerfumeria = jabones
+ArticuloBazar = fuentes,
+ArticuloJugueteria = muneca,
+ArticuloPerfumeria = jabones
 ...
 ...
 ```
@@ -408,7 +408,7 @@ tio(Tio, Sobrino) :-
 ##### Consulta
 ```prolog
 ?- tio(Quien, merlina).
-% Quien = lucas
+Quien = lucas
 ```
 
 ### Ejercicio 13
