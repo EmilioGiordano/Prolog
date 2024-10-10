@@ -6,18 +6,18 @@
   - [Ejercicio 2](#ejercicio-2)
       - [Regla](#regla-1)
   - [Ejercicio 3](#ejercicio-3)
-        - [A. ¿Es Carlos progenitor de Guillermo?](#a-es-carlos-progenitor-de-guillermo)
-        - [B. ¿Es Jorge progenitor de Gonzalo?](#b-es-jorge-progenitor-de-gonzalo)
-        - [C. ¿Es Carlos progenitor de Amalia?](#c-es-carlos-progenitor-de-amalia)
-        - [D. Usando el predicado "padre" preguntar: ¿Es Carlos padre de Roberto?](#d-usando-el-predicado-padre-preguntar-es-carlos-padre-de-roberto)
-        - [E. ¿Gonzalo es mujer?](#e-gonzalo-es-mujer)
-        - [F. ¿Alberto es varón?](#f-alberto-es-varón)
-        - [G. ¿Es cierto que Luis es progenitor de Carla, y que Carla es mujer?.](#g-es-cierto-que-luis-es-progenitor-de-carla-y-que-carla-es-mujer)
-        - [H. ¿Es cierto que Ernesto es progenitor de Carlos, y que éste es progenitor](#h-es-cierto-que-ernesto-es-progenitor-de-carlos-y-que-éste-es-progenitor)
+      - [A. ¿Es Carlos progenitor de Guillermo?](#a-es-carlos-progenitor-de-guillermo)
+      - [B. ¿Es Jorge progenitor de Gonzalo?](#b-es-jorge-progenitor-de-gonzalo)
+      - [C. ¿Es Carlos progenitor de Amalia?](#c-es-carlos-progenitor-de-amalia)
+      - [D. Usando el predicado "padre" preguntar: ¿Es Carlos padre de Roberto?](#d-usando-el-predicado-padre-preguntar-es-carlos-padre-de-roberto)
+      - [E. ¿Gonzalo es mujer?](#e-gonzalo-es-mujer)
+      - [F. ¿Alberto es varón?](#f-alberto-es-varón)
+      - [G. ¿Es cierto que Luis es progenitor de Carla, y que Carla es mujer?.](#g-es-cierto-que-luis-es-progenitor-de-carla-y-que-carla-es-mujer)
+      - [H. ¿Es cierto que Ernesto es progenitor de Carlos, y que éste es progenitor](#h-es-cierto-que-ernesto-es-progenitor-de-carlos-y-que-éste-es-progenitor)
   - [Ejercicio 4](#ejercicio-4)
-        - [A. ¿Federico es progenitor de alguien?](#a-federico-es-progenitor-de-alguien)
-        - [B. ¿Quiénes son los progenitores de Roberto?](#b-quiénes-son-los-progenitores-de-roberto)
-        - [C. ¿Guillermo tuvo alguna hija?](#c-guillermo-tuvo-alguna-hija)
+      - [A. ¿Federico es progenitor de alguien?](#a-federico-es-progenitor-de-alguien)
+      - [B. ¿Quiénes son los progenitores de Roberto?](#b-quiénes-son-los-progenitores-de-roberto)
+      - [C. ¿Guillermo tuvo alguna hija?](#c-guillermo-tuvo-alguna-hija)
       - [Caso con hijos varones y mujeres:](#caso-con-hijos-varones-y-mujeres)
   - [Ejercicio 5](#ejercicio-5)
       - [Regla](#regla-2)
@@ -114,23 +114,23 @@ es_mujer(angelica).
 ### Ejercicio 3
 Usando la base de datos generada en el problema de la familia de Luis, y con lo que se conoce hasta ahora, escribir consultas para obtener la siguiente información:
 __Preguntas simples__:
-###### A. ¿Es Carlos progenitor de Guillermo?
+##### A. ¿Es Carlos progenitor de Guillermo?
 
 ```prolog
 ?- es_progenitor_de(carlos, luis).
 ```
-###### B. ¿Es Jorge progenitor de Gonzalo?
+##### B. ¿Es Jorge progenitor de Gonzalo?
 
 ```prolog
 ?- es_progenitor_de(jorge, gonzalo).
 ```
-###### C. ¿Es Carlos progenitor de Amalia?
+##### C. ¿Es Carlos progenitor de Amalia?
 
 ```prolog
 ?- es_progenitor_de(carlos, amalia).
 ```
 
-###### D. Usando el predicado "padre" preguntar: ¿Es Carlos padre de Roberto?
+##### D. Usando el predicado "padre" preguntar: ¿Es Carlos padre de Roberto?
 
 ```prolog
 % Definición del predicado padre
@@ -139,24 +139,24 @@ padre(X, Y) :- es_progenitor_de(X, Y), es_varon(X).
 ?- padre(carlos, roberto).
 ```
 
-###### E. ¿Gonzalo es mujer?
+##### E. ¿Gonzalo es mujer?
 
 ```prolog
 ?- es_mujer(gonzalo)
 ```
-###### F. ¿Alberto es varón?
+##### F. ¿Alberto es varón?
 
 ```prolog
 ?- es_hombre(alberto)
 ```
 
 __Preguntas compuestas (conjunciones):__
-###### G. ¿Es cierto que Luis es progenitor de Carla, y que Carla es mujer?.
+##### G. ¿Es cierto que Luis es progenitor de Carla, y que Carla es mujer?.
 
 ```prolog
 ?- es_progenitor_de(luis,carla), es_mujer(carla)
 ```
-###### H. ¿Es cierto que Ernesto es progenitor de Carlos, y que éste es progenitor
+##### H. ¿Es cierto que Ernesto es progenitor de Carlos, y que éste es progenitor
 de Luis, y a su vez Luis es progenitor de Carla?
 
 ```prolog
@@ -168,19 +168,19 @@ es_progenitor_de(luis,carla)
 Usando la base de datos generada en el problema de la familia de Luis, y con
 lo que se conoce hasta ahora, escribir consultas para obtener la siguiente
 información:
-###### A. ¿Federico es progenitor de alguien?
+##### A. ¿Federico es progenitor de alguien?
 
 ```prolog
 ?- es_progenitor_de(federico, Hijo).
 ```
 
-######  B. ¿Quiénes son los progenitores de Roberto?
+#####  B. ¿Quiénes son los progenitores de Roberto?
 ```prolog
 ?- es_progenitor_de(Progenitor, roberto).
 % Progenitor = carlos
 % Progenitor = susana
 ```
-###### C. ¿Guillermo tuvo alguna hija?
+##### C. ¿Guillermo tuvo alguna hija?
 ```prolog
 ?- es_progenitor_de(guillermo, X), es_mujer(X)
 % false
