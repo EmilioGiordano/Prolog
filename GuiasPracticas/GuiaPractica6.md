@@ -33,11 +33,11 @@ antepasado_de(Antepasado, Persona) :-
 ```
 ##### Consulta
 ```prolog
-antepasado_de(juan, luis).
+?- antepasado_de(juan, luis).
 true
-antepasado_de(juan, maria).
+?- antepasado_de(juan, maria).
 true
-antepasado_de(juan, hector).
+?- antepasado_de(juan, hector).
 false
 ```
 ### Ejercicio 2
