@@ -1,7 +1,13 @@
 ## GUÍA DE EJERCICIOS: recursión y listas en Prolog
 
-- [Ejercicio 1](#ejercicio-1)
-
+- [GUÍA DE EJERCICIOS: recursión y listas en Prolog](#guía-de-ejercicios-recursión-y-listas-en-prolog)
+  - [Ejercicio 1](#ejercicio-1)
+      - [Hechos](#hechos)
+      - [Predicados](#predicados)
+      - [Consulta](#consulta)
+  - [Ejercicio 2](#ejercicio-2)
+  - [Ejercicio 3](#ejercicio-3)
+  - [Ejercicio 4](#ejercicio-4)
 
 ### Ejercicio 1
 Dada una base de datos en la cual se describe una cadena de progenitores con hechos como:
