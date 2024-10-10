@@ -49,15 +49,13 @@
   - [Ejercicio 13](#ejercicio-13)
 
 ### Ejercicio 1
-##### Regla
 Escribir las siguientes oraciones en Prolog:
 - El oro es valioso.
 - Isabel es mujer.
 - Juan es Rey.
 - Zeus es el progenitor de Hercules.
 - José le presta dinero a Pedro.
-
-
+##### Regla
 ```prolog
 es_valioso(oro). 
 es_mujer(isabel).
