@@ -1,1 +1,0 @@
-9. Una empresa tiene 5 gerentes, 23 empleados administrativos y 7 ordenanzas. Preparar un predicado que vincule el sueldo de cada categoría con el total que la empresa debe pagar a fin de mes.

@@ -1,1 +1,0 @@
-7. Una empresa de ventas paga a sus empleados un salario fijo de 800 pesos, mas una comisión de $50 por cada venta realizada, más el 8% sobre el monto total de ventas. Escribir la regla de un predicado ternario que vincule la cantidad de ventas, con el monto total de ventas y el sueldo del vendedor.
