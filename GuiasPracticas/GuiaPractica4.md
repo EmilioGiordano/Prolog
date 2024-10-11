@@ -418,8 +418,8 @@ conectadas(carmen_de_areco, san_andres_de_giles, ruta_7).
 conectadas(san_andres_de_giles, lujan, ruta_7).
 conectadas(cardales, lujan, ruta_6).
 conectadas(san_antonio_de_areco, san_andres_de_giles, ruta_41).
-conectadas(san_andres_de_giles, mercedes, ruta 41).
-conectadas(arrecifes, carmen_de_areco, ruta 51).
+conectadas(san_andres_de_giles, mercedes, ruta_41).
+conectadas(arrecifes, carmen_de_areco, ruta_51).
 conectadas(carmen_de_areco, chivilcoy, ruta_51).
 conectadas(lujan, mercedes, ruta_5).
 conectadas(mercedes, chivilcoy, ruta_5).
