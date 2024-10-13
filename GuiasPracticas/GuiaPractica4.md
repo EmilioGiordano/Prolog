@@ -41,9 +41,9 @@
       - [Regla](#regla-8)
       - [Consulta](#consulta-6)
   - [Ejercicio 12](#ejercicio-12)
-      - [Usando los predicados anteriores, definir la relación "hermano\_de".](#usando-los-predicados-anteriores-definir-la-relación-hermano_de)
+      - [Usando los predicados anteriores, definir la relación `hermano_de`.](#usando-los-predicados-anteriores-definir-la-relación-hermano_de)
       - [Regla](#regla-9)
-      - [Escriba las reglas necesarias para la consulta '?- tio(Quien,merlina).':](#escriba-las-reglas-necesarias-para-la-consulta---tioquienmerlina)
+      - [Escriba las reglas necesarias para la consulta `?- tio(Quien,merlina).`:](#escriba-las-reglas-necesarias-para-la-consulta---tioquienmerlina)
       - [Regla](#regla-10)
       - [Consulta](#consulta-7)
   - [Ejercicio 13](#ejercicio-13)
@@ -398,7 +398,7 @@ mujer(la-abuela).
 madre(la-abuela, homero).
 esposos(morticia, homero).
 ```
-##### Usando los predicados anteriores, definir la relación "hermano_de".
+##### Usando los predicados anteriores, definir la relación `hermano_de`.
 ##### Regla
 ```prolog
 hermano_de(X, Y) :-
@@ -406,7 +406,9 @@ hermano_de(X, Y) :-
     padre_de(Padre, Y),
     X \= Y.
 ```
-##### Escriba las reglas necesarias para la consulta '?- tio(Quien,merlina).': 
+##### Escriba las reglas necesarias para la consulta `?- tio(Quien,merlina).`: 
+
+
 ##### Regla
 ```prolog
 
@@ -445,12 +447,10 @@ Si, mediante la ruta 41
 % Consulta directa
 ?- conectadas(san_antonio_de_areco, san_andres_de_giles, Ruta)
 Ruta = ruta_41
-% Consultas todas las ciudades conectadas
-?- conectadas(san_antonio_de_areco, Ciudad, Ruta)
+% Consultar todas las ciudades conectadas
+?- conectadas(san_antonio_de_areco, Ciudad, _)
 Ciudad = cardales,
-Ruta = ruta_8
 Ciudad = san_andres_de_giles,
-Ruta = ruta_41
 ```
 ##### B. Chivilcoy está conectada con San Antonio de Areco?
 ```prolog
@@ -465,20 +465,13 @@ false
 ```prolog
 ?- conectadas(carmen_de_areco, san_andres_de_giles, ruta_51)
 false
-?- conectadas(san_andres_de_giles, carmen_de_areco, ruta_51)
-false
 ```
 ##### D. Con quien está conectada Luján?
 ```prolog
-?- conectadas(lujan, CiudadConectada, Ruta)
-CiudadConectada = mercedes,
-Ruta = ruta_5
-
-?- conectadas(Ciudad, lujan, Ruta)
-Ciudad = san_andres_de_giles,
-Ruta = ruta_7
-Ciudad = cardales,
-Ruta = ruta_6
+?- conectadas(lujan, Ciudad, _); conectadas(Ciudad, lujan, _).
+Ciudad = mercedes
+Ciudad = san_andres_de_giles
+Ciudad = cardales
 ```
 ##### E. Cual es la que está conectada con San Andrés de Giles?
 ```prolog
@@ -512,21 +505,28 @@ Ciudad = san_antonio_de_areco
 IMPORTANTE: el lugar que tome Lujan como parámetro es importante para la G y H.
 ##### G. Que rutas llegan a Luján?
 ```prolog
-?- conectadas(Ciudad, lujan, Ruta)
-Ciudad = san_andres_de_giles,
+?- conectadas(_, lujan, Ruta)
 Ruta = ruta_7
-Ciudad = cardales,
 Ruta = ruta_6
 ```
 ##### H. Que rutas salen de Luján?
 ```prolog
+?- conectadas(lujan, _, Ruta)
+Ruta = ruta_5
+% Si nos interesa saber la/s ciudad/es:
 ?- conectadas(lujan, Ciudad, Ruta)
 Ciudad = mercedes,
 Ruta = ruta_5
 ```
 ##### I. Se puede salir de Carmen de Areco y llegar a Luján pasando por San Andrés de Giles?
 ```prolog
+?- conectadas(carmen_de_areco, san_andres_de_giles, _), conectadas(san_andres_de_giles, lujan, _).
+true
 ```
+¿Por qué `_` devuelve true o false?
+Cuando usas `_`, Prolog solo está verificando si las conexiones existen, sin preocuparse por el valor de las rutas. Si las conexiones son válidas, devuelve true. Si no lo son, devuelve false.
 ##### J. Que ruta llega a Chivilcoy saliendo de Luján y pasando por Mercedes?
 ```prolog
+?- conectadas(lujan, mercedes, _), conectadas(mercedes, chivilcoy, Ruta)
+Ruta = ruta_5
 ```
