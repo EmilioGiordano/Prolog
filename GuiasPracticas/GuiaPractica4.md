@@ -47,6 +47,18 @@
       - [Regla](#regla-10)
       - [Consulta](#consulta-7)
   - [Ejercicio 13](#ejercicio-13)
+      - [A. Están conectadas San Andrés de Giles y Mercedes?](#a-están-conectadas-san-andrés-de-giles-y-mercedes)
+      - [B. Chivilcoy está conectada con San Antonio de Areco?](#b-chivilcoy-está-conectada-con-san-antonio-de-areco)
+      - [C. La ruta 51 conecta Carmen de Areco con San Andrés de Giles?](#c-la-ruta-51-conecta-carmen-de-areco-con-san-andrés-de-giles)
+      - [D. Con quien está conectada Luján?](#d-con-quien-está-conectada-luján)
+      - [E. Cual es la que está conectada con San Andrés de Giles?](#e-cual-es-la-que-está-conectada-con-san-andrés-de-giles)
+      - [F. Cuales son las que están conectadas con San Andrés de Giles?](#f-cuales-son-las-que-están-conectadas-con-san-andrés-de-giles)
+        - [Predicado](#predicado)
+        - [Consulta](#consulta-8)
+      - [G. Que rutas llegan a Luján?](#g-que-rutas-llegan-a-luján)
+      - [H. Que rutas salen de Luján?](#h-que-rutas-salen-de-luján)
+      - [I. Se puede salir de Carmen de Areco y llegar a Luján pasando por San Andrés de Giles?](#i-se-puede-salir-de-carmen-de-areco-y-llegar-a-luján-pasando-por-san-andrés-de-giles)
+      - [J. Que ruta llega a Chivilcoy saliendo de Luján y pasando por Mercedes?](#j-que-ruta-llega-a-chivilcoy-saliendo-de-luján-y-pasando-por-mercedes)
 
 ### Ejercicio 1
 Escribir las siguientes oraciones en Prolog:
@@ -427,14 +439,94 @@ siguiente(X, Y, Z) :- conectadas(Y, X, Z).
 ```
 
 Escribir las siguientes consultas:
-A. Están conectadas San Andrés de Giles y Mercedes?
-B. Chivilcoy está conectada con San Antonio de Areco?
-C. La ruta 51 conecta Carmen de Areco con San Andrés de Giles?
-D. Con quien está conectada Luján?
-E. Cual es la que está conectada con San Andrés de Giles?
-F. Cuales son las que están conectadas con San Andrés de Giles?
-G. Que rutas llegan a Luján?
-H. Que rutas salen de Luján?
-I. Se puede salir de Carmen de Areco y llegar a Luján pasando por San
-Andrés de Giles?
-J. Que ruta llega a Chivilcoy saliendo de Luján y pasando por Mercedes?
+##### A. Están conectadas San Andrés de Giles y Mercedes?
+Si, mediante la ruta 41
+```prolog
+% Consulta directa
+?- conectadas(san_antonio_de_areco, san_andres_de_giles, Ruta)
+Ruta = ruta_41
+% Consultas todas las ciudades conectadas
+?- conectadas(san_antonio_de_areco, Ciudad, Ruta)
+Ciudad = cardales,
+Ruta = ruta_8
+Ciudad = san_andres_de_giles,
+Ruta = ruta_41
+```
+##### B. Chivilcoy está conectada con San Antonio de Areco?
+```prolog
+?- conectadas(chivilcoy, Ciudad, Ruta)
+false
+?- conectadas(chivilcoy, san_antonio_de_areco, Ruta)
+false
+?- conectadas(san_antonio_de_areco, chivilcoy, Ruta)
+false
+```
+##### C. La ruta 51 conecta Carmen de Areco con San Andrés de Giles?
+```prolog
+?- conectadas(carmen_de_areco, san_andres_de_giles, ruta_51)
+false
+?- conectadas(san_andres_de_giles, carmen_de_areco, ruta_51)
+false
+```
+##### D. Con quien está conectada Luján?
+```prolog
+?- conectadas(lujan, CiudadConectada, Ruta)
+CiudadConectada = mercedes,
+Ruta = ruta_5
+
+?- conectadas(Ciudad, lujan, Ruta)
+Ciudad = san_andres_de_giles,
+Ruta = ruta_7
+Ciudad = cardales,
+Ruta = ruta_6
+```
+##### E. Cual es la que está conectada con San Andrés de Giles?
+```prolog
+?- conectadas(san_andres_de_giles, Ciudad, Ruta)
+Ciudad = lujan,
+Ruta = ruta_7
+Ciudad = mercedes,
+Ruta = ruta_41
+
+?- conectadas(Ciudad, san_andres_de_giles, Ruta)
+Ciudad = carmen_de_areco,
+Ruta = ruta_7
+Ciudad = san_antonio_de_areco,
+Ruta = ruta_41
+```
+##### F. Cuales son las que están conectadas con San Andrés de Giles?
+###### Predicado
+```prolog
+conectadas_con_san_andres_de_giles(Ciudad) :-
+    conectadas(san_andres_de_giles, Ciudad, _);
+    conectadas(Ciudad, san_andres_de_giles, _).
+```
+###### Consulta
+```prolog
+?- conectadas_con_san_andres_de_giles(Ciudad).
+Ciudad = lujan
+Ciudad = mercedes
+Ciudad = carmen_de_areco
+Ciudad = san_antonio_de_areco
+```
+IMPORTANTE: el lugar que tome Lujan como parámetro es importante para la G y H.
+##### G. Que rutas llegan a Luján?
+```prolog
+?- conectadas(Ciudad, lujan, Ruta)
+Ciudad = san_andres_de_giles,
+Ruta = ruta_7
+Ciudad = cardales,
+Ruta = ruta_6
+```
+##### H. Que rutas salen de Luján?
+```prolog
+?- conectadas(lujan, Ciudad, Ruta)
+Ciudad = mercedes,
+Ruta = ruta_5
+```
+##### I. Se puede salir de Carmen de Areco y llegar a Luján pasando por San Andrés de Giles?
+```prolog
+```
+##### J. Que ruta llega a Chivilcoy saliendo de Luján y pasando por Mercedes?
+```prolog
+```
